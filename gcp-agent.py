@@ -18,7 +18,7 @@ driver = GoogleWebSearchDriver(
 )
 
 agent = Agent(
-    #How many time has RCB come to finials in IPL ?tools=[WebSearchTool(web_search_driver=driver)],
+    tools=[WebSearchTool(web_search_driver=driver)],
     prompt_driver=GooglePromptDriver(
         model="gemini-2.0-flash",
         api_key=GOOGLE_API_KEY

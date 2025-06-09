@@ -58,8 +58,8 @@ vector_store_driver = PgVectorVectorStoreDriver(
 vector_store_driver.setup()
 
 documents_to_upsert = [  # list your PDF documents here. Each tuple should contain a PDF file path and a namespace.
-    ("/Users/meghshetty/Desktop/rag-vertexai-gcp/6486_Flex_benefits_Ebook V3 High NEW.pdf", "My Flex"),
-    ("/Users/meghshetty/Desktop/rag-vertexai-gcp/LLM_AI_Security_and_Governance_Checklist-v1.1.pdf", "AI"),
+    ("./doc/LLM_AI_Security_and_Governance_Checklist-v1.1.pdf", "LLM AI Security"),
+    ("./doc/Implementation_Guide_for_the_AI_Cyber_Security_Code_of_Practice (1).pdf", "AI Cyber Security code of practice"),
 ]
 
 if True:
@@ -72,14 +72,14 @@ if True:
 # Create the tool
 flextool = VectorStoreTool(
     vector_store_driver=vector_store_driver,
-    description="This DB has information about the Flex Pdf",
-    query_params={"namespace": "My Flex"},
+    description="This DB has information about the LLM AI Security PDF",
+    query_params={"namespace": "LLM AI Security"},
     name="flextool"
 )
 aitool = VectorStoreTool(
     vector_store_driver=vector_store_driver,
-    description="This DB has information about the AI PDF",
-    query_params={"namespace": "AI"},
+    description="This DB has information about AI Cyber Security code of practice PDF",
+    query_params={"namespace": "AI Cyber Security code of practice"},
     name="aitool" 
 )
 
